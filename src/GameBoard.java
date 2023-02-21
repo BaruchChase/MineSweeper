@@ -1,5 +1,7 @@
+package src;
+
 public class GameBoard {
-	Cell [] board;
+	Cell[] board;
 	int boardSize;
 	int height;
 	int length;
@@ -24,13 +26,11 @@ public class GameBoard {
 			this.mineNumber = 10;
 		}
 		else if (gameDifficulty == GameDifficulty.MEDIUM) {
-			//todo fix with correct numbers
 			this.height = 14;
 			this.length = 18;
 			this.mineNumber = 40;
 		}
 		else if (gameDifficulty == GameDifficulty.HARD) {
-			//todo fix with correct numbers
 			this.height = 20;
 			this.length = 24;
 			this.mineNumber = 99;
@@ -52,4 +52,6 @@ public class GameBoard {
 	/*
 	todo find equation to access the data in a single array as if it were a 2d array
 	 */
+
+
 }
