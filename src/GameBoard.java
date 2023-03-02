@@ -11,7 +11,29 @@ public class GameBoard {
 		setHeightLengthAndMines(GameDifficulty.EASY);
 		this.boardSize = this.height * this.length;
 		this.board = new Cell[this.boardSize];
+		populate(this.length,this.height);
 	}
+
+	private void populate(int length, int height) {
+		// fill the simulated 2D array with some values
+		for (int row = 0; row < length; row++) {
+			for (int col = 0; col < height; col++) {
+				this.board[row * height + col] = new Cell();
+			}
+		}
+	}
+
+// function to get the value at (row, col) in the simulated 2D array
+		public Cell getValue(Cell[] board, int row, int col, int height) {
+			return board[row * height + col];
+		}
+
+// function to set the value at (row, col) in the simulated 2D array
+		public void setValue(Cell[] board, int row, int col, int height, Cell cell) {
+			board[row * height + col] = cell;
+		}
+
+
 
 	public GameBoard(GameDifficulty gameDifficulty) {
 		setHeightLengthAndMines(gameDifficulty);
