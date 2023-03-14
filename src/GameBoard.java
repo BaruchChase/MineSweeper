@@ -1,5 +1,3 @@
-package src;
-
 public class GameBoard {
 	Cell[] board;
 	int boardSize;
