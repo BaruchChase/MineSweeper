@@ -21,12 +21,12 @@ public class GameBoard {
 		}
 	}
 
-// function to get the value at (row, col) in the simulated 2D array
+// function to get the value at (row, col) in the simulated 2D array (found with chatgpt)
 		public Cell getValue(Cell[] board, int row, int col, int height) {
 			return board[row * height + col];
 		}
 
-// function to set the value at (row, col) in the simulated 2D array
+// function to set the value at (row, col) in the simulated 2D array (found with chatgpt)
 		public void setValue(Cell[] board, int row, int col, int height, Cell cell) {
 			board[row * height + col] = cell;
 		}
@@ -68,10 +68,5 @@ public class GameBoard {
 	public int getMineNumber() {
 		return this.mineNumber;
 	}
-
-	/*
-	todo find equation to access the data in a single array as if it were a 2d array
-	 */
-
 
 }
