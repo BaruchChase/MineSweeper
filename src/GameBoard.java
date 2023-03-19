@@ -5,6 +5,7 @@ public class GameBoard {
 	int length;
 	int mineNumber;
 
+
 	public GameBoard() {
 		setHeightLengthAndMines(GameDifficulty.EASY);
 		this.boardSize = this.height * this.length;
@@ -21,16 +22,28 @@ public class GameBoard {
 		}
 	}
 
+	// function to get the value at (row, col) in the simulated 2D array (found with chatgpt)
+	public Cell getValue(int row, int col) {
+		return board[row * height + col];
+	}
+
+	// function to set the value at (row, col) in the simulated 2D array (found with chatgpt)
+	public void setValue(int row, int col, Cell cell) {
+		board[row * height + col] = cell;
+	}
+
+	/*
+	//todo these could be used to test the methods in the future.
 // function to get the value at (row, col) in the simulated 2D array (found with chatgpt)
-		public Cell getValue(Cell[] board, int row, int col, int height) {
+	public Cell getValueTest(Cell[] board, int row, int col, int height) {
 			return board[row * height + col];
 		}
 
 // function to set the value at (row, col) in the simulated 2D array (found with chatgpt)
-		public void setValue(Cell[] board, int row, int col, int height, Cell cell) {
+	public void setValueTest(Cell[] board, int row, int col, int height, Cell cell) {
 			board[row * height + col] = cell;
 		}
-
+*/
 
 
 	public GameBoard(GameDifficulty gameDifficulty) {

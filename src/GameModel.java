@@ -2,6 +2,7 @@ import java.util.Random;
 
 public class GameModel {
     GameBoard gameBoard = new GameBoard();
+    boolean isFirstMove = true;
 
     public void setUpMines(){
         //loop through the array with a random number connoting chance of mine
@@ -14,8 +15,13 @@ public class GameModel {
             for (int i = 0; i < gameBoard.boardSize; i++) {
                 int mine = rand.nextInt(4);
 
-                //if this is a second round of placement, make sure it's not being placed in the same spot.
-                if (mine == 0 && gameBoard.board[i].getCellVal() != 9) {
+                /*
+                checks for 3 things:
+                1. if the random int is a mine
+                2. making sure it's not being placed on a mine
+                3. making sure it's not being placed on the first cell clicked, which is now uncovered
+                 */
+                if ( (mine == 0) && (gameBoard.board[i].getCellVal() != 9) && (!gameBoard.board[i].getState().equals(Cell.CellState.UNCOVERED))) {
 
                     //9 indicates a bomb because that is a number that can't appear
                     gameBoard.board[i].setCellVal(9);
@@ -24,6 +30,19 @@ public class GameModel {
             }
         }
 
+    }
+
+    public void MakeMove(int row, int col){
+        gameBoard.getValue(row,col).setState(Cell.CellState.UNCOVERED);
+        if(isFirstMove){
+            firstMove();
+        }
+
+    }
+
+    private void firstMove() {
+        setUpMines();
+        isFirstMove = false;
     }
 
     // todo add function to prevent first clicked cell becoming a mine
